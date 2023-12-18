@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-myekman-ideakvariumm-8b9jabml8l4.ws-eu107.gitpod.io']
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-myekman-ideakvariumm-8b9jabml8l4.ws-eu107.gitpod.io']
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
 
 # Application definition
 
@@ -39,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fishes',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [

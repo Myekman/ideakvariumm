@@ -9,7 +9,8 @@ class FishList(generics.ListCreateAPIView):
     # permission_classes = [IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
-        serializer.save
+        serializer.save()
+        
     # def perform_create(self, serializer):
     #     serializer.save(user=self.request.user)
 

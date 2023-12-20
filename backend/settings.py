@@ -32,7 +32,16 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-myekman-ideakvariumm-8b9jabml8l4.ws-eu107.
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
+    
     ],
+}
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }
 
 
@@ -46,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fishes',
+    'accounts',
     'rest_framework',
     'rest_framework.authtoken',
 ]

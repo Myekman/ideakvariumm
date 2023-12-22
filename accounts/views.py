@@ -10,6 +10,6 @@ class LoginView(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         serializer = LoginSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        token, created = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key, 'user_id': user.pk, 'username': user.username}, status=status.HTTP_200_OK)
+        owner = serializer.validated_data['owner']
+        token, created = Token.objects.get_or_create(owner=owner)
+        return Response({'token': token.key, 'owner_id': owner.pk, 'username': owner.username}, status=status.HTTP_200_OK)

@@ -8,6 +8,9 @@ class FishList(generics.ListCreateAPIView):
     serializer_class = FishSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly] # Allow GET for everyone, require authentication for POST
 
+    def get_queryset(self):
+        return Fish.objects.all()
+        
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 

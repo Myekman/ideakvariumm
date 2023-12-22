@@ -29,22 +29,33 @@ ALLOWED_HOSTS = ['8000-myekman-ideakvariumm-8b9jabml8l4.ws-eu107.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-myekman-ideakvariumm-8b9jabml8l4.ws-eu107.gitpod.io']
 
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
-    
+        'rest_framework.authentication.SessionAuthentication',  # Optional for session-based authentication
+    ],
+      'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',  # Allows read access to everyone, but write access only to authenticated users
+        'backend.permissions.IsOwnerOrReadOnly',  # Replace with the actual path to your custom permission class
     ],
 }
 
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    ]
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.TokenAuthentication',
+    
+#     ],
+# }
 
-}
+# REST_FRAMEWORK = {
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+#     ]
 
+# }
 
 # Application definition
 

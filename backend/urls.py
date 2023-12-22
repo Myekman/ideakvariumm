@@ -17,11 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import root_route
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('', root_route),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),  # Token login endpoint
     path('api-auth/', include('rest_framework.urls')), #Adds the login
+
     path('api/', include('fishes.urls')),
     path('api/', include('like.urls')),
 ]

@@ -9,4 +9,4 @@ class Like(models.Model):
 
 
     class Meta:
-    unique_together = ('user', 'fish_post')
+        unique_together = ('user', 'fish_post')

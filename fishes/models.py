@@ -10,7 +10,7 @@ class Fish(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
-    like_count = models.IntegerField(default=0)
+    # like_count = models.IntegerField(default=0)
     fish_type = models.CharField(max_length=20, choices=FISH_TYPES)
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -8,7 +8,7 @@ class Fish(models.Model):
         ('anglerfish', 'Anglerfish'),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
     like_count = models.IntegerField(default=0)
     fish_type = models.CharField(max_length=20, choices=FISH_TYPES)
@@ -16,4 +16,3 @@ class Fish(models.Model):
 
     def __str__(self):
         return f"{self.get_fish_type_display()} #{self.id}: {self.message} {self.user}"
-

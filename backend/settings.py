@@ -87,10 +87,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
-
     'fishes',
     'accounts',
-    'like',
+    # 'like',
+    
 ]
 
 SITE_ID = 1

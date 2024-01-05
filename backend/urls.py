@@ -37,5 +37,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')), #Adds the login
 
     path('api/', include('fishes.urls')),
-    path('api/', include('like.urls')),
+    # path('api/', include('like.urls')),
 ]
